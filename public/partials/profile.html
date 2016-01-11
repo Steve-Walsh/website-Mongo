@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5  toppad  pull-right col-md-offset-3 ">
+     <button ng-click='editAccount()' class="btn btn-primary" ng-if="edit == 'no'">Edit Profile</button>
+
+     <button ng-click='logout()' class="btn btn-primary" ng-if="edit == 'no'">Logout</button>
+     <br>
+     <p class=" text-info"></p>
+   </div>
+   
+   <!--  normal  -->
+   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+     <div class="panel panel-info" ng-if="edit == 'no'">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{loggedInUser.name}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 " align="center"> 
+          <img alt="User Pic" src="../data/images/male.jpg" class="img-circle img-responsive" ng-show='loggedInUser.gender == "Male"'> 
+          <img alt="User Pic" src="../data/images/female.jpg" class="img-circle img-responsive" ng-show='loggedInUser.gender == "Female"'>
+          </div>
+
+          <div class=" col-md-9 col-lg-9 "> 
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <td>Name:</td>
+                  <td>{{loggedInUser.name}}</td>
+                </tr>
+
+
+                <tr>
+                 <tr>
+                  <td>Gender</td>
+                  <td>{{loggedInUser.gender}}</td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td>{{loggedInUser.email}}</td>
+                </tr>
+                <td>Phone Number</td>
+                <td>{{loggedInUser.phone_num}}<br>
+                </td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+          <a href="#/posts" class="btn btn-primary">My Posts</a>
+          <a href="#/pictures" class="btn btn-primary">My Pictures</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</div>  
+
+
+<!--  edit  -->
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+ <div class="panel panel-info" ng-if="edit == 'yes'">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{loggedInUser.name}}</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+
+      <div class=" col-md-9 col-lg-9 "> 
+      <form ng-submit="save(newDetails)">
+        <table class="table table-user-information">
+          <tbody>
+            <tr>
+              <td>Name:</td>
+              <td><div class="form-group">
+                <input type="text" class="form-control" placeholder="{{loggedInUser.name}}" ng-model="user.name" ></input></div></td>
+              </tr>
+              <tr>
+               <tr>
+                <td>Gender</td>
+                <td>      <div class="form-group">
+
+                  <form action="action_page.php">
+                    <select ng-model="user.gender">
+                     <option value="Male">Male</option>
+                     <option value="Female">Female</option>
+
+                   </select>
+                   <br>
+                 </form>
+              
+               </div></td>
+             </tr>
+             <tr>
+              <td>Email</td>
+              <td>      <div class="form-group">
+               <input type="text" class="form-control" placeholder="{{loggedInUser.email}}" ng-model="user.email" ></input>
+             </div></td>
+           </tr>
+           <td>Phone Number</td>
+           <td> <div class="form-group">
+             <input type="text" class="form-control" placeholder="{{loggedInUser.phone_num}}" ng-model="user.phone_num" ></input>
+           </div></td><br>
+         </td>
+
+       </tr>
+
+     </tbody>
+   </table>
+
+   <button class="btn btn-primary" ng-click="save(user)">Save</button><button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+</form>
+ </div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>  

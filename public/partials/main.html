@@ -1,0 +1,58 @@
+<link href="../styles/pictures-custom.css" rel="stylesheet" type="text/css">
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-xs-12 col-sm-9">
+
+          <div class="jumbotron">
+            <h1>Welcome! To News On The Go!</h2>
+            <p>Are you ready to get all your news on the go!</p>
+          </div>
+          <div class="row">
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h1 class="panel-title" >Top Posts</h1>
+            </div>
+            <div class="panel-body">
+            <div class="col-xs-6 col-lg-4" ng-repeat="post in posts | orderBy:orderProp | limitTo:3">
+              <div class="panel panel-success">
+            <div class="panel-heading">
+                 <h1 class="panel-title" >{{post.title}}</h1>
+            </div>
+            <div class="panel-body">
+       <p>{{post.body}} </p>
+              <p><a class="btn btn-default" href="#/post/{{post._id}}" role="button">View details &raquo;</a></p>
+            </div>
+          </div>
+          </div>
+          </div>
+             
+            </div>
+            </div>
+          <div class="row">
+            <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h1 class="panel-title" >Top Pictures</h1>
+            </div>
+            <div class="panel-body">
+            <div class="col-xs-6 col-lg-4" ng-repeat="picture in pictures | orderBy:orderProp | limitTo:3">
+              <div class="panel panel-success">
+            <div class="panel-heading">
+              <h1 class="panel-title" >{{picture.title}}</h1>
+            </div>
+            <div class="panel-body">
+           <p><a href="#/picture/{{picture._id}}"><img class='thumb' ng-src="{{picture.link}}"></a></p>
+            </div>
+          </div>
+          </div>
+          </div><!--/row-->
+          </div>
+          </div>
+        </div><!--/.col-xs-12.col-sm-9-->
+
+        <div class="col-xs-22 col-sm-3 sidebar-offcanvas" id="sidebar" >
+          <div class="list-group">
+            <a href="#/profile/{{loggedInUser._id}}" class="list-group-item" ng-show='loggedInUser.name != null'>      Edit Account </a>
+
+          </div>
+        </div><!--/.sidebar-offcanvas-->
+      </div><!--/row-->
