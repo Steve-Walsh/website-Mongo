@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp',['ngRoute']);
 
-
+// this is the back up app.js file that is working.
 myApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider
